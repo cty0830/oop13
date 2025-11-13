@@ -1,25 +1,38 @@
 
+import java.util.ArrayList;
+import java.util.List;
+
 class MyStack<T> {
+    private List<T> stack;
 
+    // Constructor
     public MyStack() {
+        this.stack = new ArrayList<>();
     }
 
+    // Push an item onto the stack
     public void push(T item) {
+        stack.add(item); // Adds the item to the end of the list
     }
 
+    // Pop an item from the stack
     public T pop() {
-        return stack.top();
+        if (isEmpty()) {
+            throw new IllegalStateException("Stack is empty");
+        }
+        return stack.remove(stack.size() - 1); // Removes and returns the last item in the list
     }
 
-    // 检查栈是否为空
+    // Check if the stack is empty
     public boolean isEmpty() {
         return stack.isEmpty();
     }
 
-    // 返回栈中的元素数量
+    // Return the size of the stack
     public int size() {
         return stack.size();
     }
+
 }
 
 public class StackExample{
